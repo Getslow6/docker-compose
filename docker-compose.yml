@@ -12,12 +12,13 @@ services:
       - TZ=Europe/Amsterdam
     depends_on:
       - mariadb
+      - mosquitto
     network_mode: host
     privileged: true
     
     
-  eclipse-mosquitto:
-    container_name: eclipse-mosquitto
+  mosquitto:
+    container_name: mosquitto
     image: eclipse-mosquitto
     volumes:
       - $HOME/docker/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
