@@ -1,5 +1,5 @@
 # Trigger this shell by running the following command:
-# wget -O - https://raw.githubusercontent.com/Getslow6/docker-compose/main/setup-host.sh | bash -
+# sudo wget -O - https://raw.githubusercontent.com/Getslow6/docker-compose/main/setup-host.sh | bash -
 
 # Update Linux to the latest version
 sudo apt-get update
