@@ -1,5 +1,19 @@
 version: '3'
 services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - $HOME/docker/home-assistant/config:/config:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
+    network_mode: host
+    privileged: true
+    
+ 
   esphome:
     container_name: esphome
     image: esphome/esphome:latest
@@ -9,18 +23,7 @@ services:
     network_mode: host
     restart: always
     
-  homeassistant:
-    container_name: home-assistant
-    image: homeassistant/home-assistant:stable
-    volumes:
-      - $HOME/docker/home-assistant/config:/config:rw
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-    environment:
-      - TZ=Europe/Amsterdam
-    network_mode: host
-    privileged: true
+  
 
   watchtower:
     container_name: watchtower
