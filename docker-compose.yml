@@ -17,9 +17,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
+    network_mode: host
     privileged: true
-    ports:
-      - 8123:8123
 
   watchtower:
     container_name: watchtower
@@ -30,4 +29,3 @@ services:
     network_mode: bridge
     labels:
       - watchtower
-    command: --cleanup --interval 1 --run-once
