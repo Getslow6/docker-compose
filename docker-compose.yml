@@ -5,7 +5,6 @@ services:
     volumes:
       - $HOME/docker/esphome:/config:rw
       - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
     network_mode: host
     restart: always
     
