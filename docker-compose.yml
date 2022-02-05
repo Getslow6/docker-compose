@@ -73,6 +73,18 @@ services:
       - PUID=1000
       - PGID=1000
     restart: always
+    
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - $HOME/docker/zigbee2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    privileged: true
+    network_mode: host
+    environment:
+      - TZ=Europe/Amsterdam
+    restart: always
 
   watchtower:
     container_name: watchtower
