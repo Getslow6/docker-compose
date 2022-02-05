@@ -35,10 +35,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MARIADB_DATABASE=homeassistant
-      - MARIADB_ROOT_PASSWORD=testpassword
-      - MARIADB_USER=homeassistant
-      - MARIADB_PASSWORD=testuserpassword
+      - MYSQL_DATABASE=homeassistant
+      - MYSQL_ROOT_PASSWORD=testpassword
+      - MYSQL_USER=homeassistant
+      - MYSQL_PASSWORD=testuserpassword
     restart: always
 
   watchtower:
