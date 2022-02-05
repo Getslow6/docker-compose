@@ -27,7 +27,7 @@ services:
     
   mariadb:
     container_name: mariadb
-    image: mariadb:latest
+    image: linuxserver/mariadb:latest
     volumes:
       - $HOME/docker/mariadb:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
