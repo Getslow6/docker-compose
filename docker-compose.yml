@@ -42,7 +42,7 @@ services:
     ports:
       - 8126:8126
     depends_on:
-      - home-assistant
+      - homeassistant
     restart: always
     
  
