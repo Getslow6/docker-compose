@@ -12,7 +12,7 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant:stable
     volumes:
-      - $HOME/docker/home-assistant/config:/config
+      - $HOME/docker/home-assistant/config:/config:rw
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
