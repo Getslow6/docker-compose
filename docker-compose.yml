@@ -39,6 +39,9 @@ services:
       - MYSQL_ROOT_PASSWORD=testpassword
       - MYSQL_USER=homeassistant
       - MYSQL_PASSWORD=testuserpassword
+      - TZ=Europe/Amsterdam
+      - PUID=1000
+      - PGID=1000
     restart: always
 
   watchtower:
