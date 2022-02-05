@@ -10,6 +10,8 @@ services:
     restart: always
     environment:
       - TZ=Europe/Amsterdam
+    depends_on:
+      - mariadb
     network_mode: host
     privileged: true
     
@@ -23,7 +25,21 @@ services:
     network_mode: host
     restart: always
     
-  
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    volumes:
+      - $HOME/docker/mariadb:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: bridge
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_DATABASE=homeassistant
+      - MARIADB_ROOT_PASSWORD=testpassword
+      - MARIADB_USER=homeassistant
+      - MARIADB_PASSWORD=testuserpassword
+    restart: always
 
   watchtower:
     container_name: watchtower
