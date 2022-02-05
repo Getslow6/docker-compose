@@ -15,14 +15,43 @@ services:
     network_mode: host
     privileged: true
     
+    
+  eclipse-mosquitto:
+    container_name: eclipse-mosquitto
+    image: eclipse-mosquitto
+    volumes:
+      - $HOME/docker/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - $HOME/docker/mosquitto/data:/mosquitto/data
+      - $HOME/docker/mosquitto/log:/mosquitto/log
+    network_mode: bridge
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: always
+    
+    
+  ha-dockermon:
+    container_name: ha-dockermon
+    image: philhawthorne/ha-dockermon
+    volumes:
+      - $HOME/docker/ha-dockermon:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: bridge
+    ports:
+      - 8126:8126
+    depends_on:
+      - home-assistant
+    restart: always
+    
  
-  esphome:
+  esphome: #Web port: 6052
     container_name: esphome
     image: esphome/esphome:latest
     volumes:
       - $HOME/docker/esphome:/config:rw
       - /etc/localtime:/etc/localtime:ro
-    network_mode: host
+    network_mode: host # Host is required for mDNS discovery.
     restart: always
     
   mariadb:
