@@ -1,0 +1,11 @@
+services:
+  esphome:
+    container_name: esphome
+    image: esphome/esphome
+    volumes:
+      - /volume1/docker/hass-config/esphome:/config:rw
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=${TZ}
+    network_mode: host
+    restart: always
