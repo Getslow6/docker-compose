@@ -12,7 +12,6 @@ services:
       - TZ=Europe/Amsterdam
     depends_on:
       - mariadb
-      - mosquitto
     network_mode: host
     privileged: true
     
