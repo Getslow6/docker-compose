@@ -5,6 +5,12 @@
 sudo apt-get update
 sudo apt-get upgrade
 
+# Install samba
+sudo apt-get install samba samba-common-bin
+
+
+sudo nano /etc/samba/smb.conf
+
 # Get docker
 curl -sSL https://get.docker.com | sh
 
