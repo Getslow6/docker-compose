@@ -17,18 +17,6 @@ services:
     privileged: true
     
     
-  mosquitto:
-    container_name: mosquitto
-    image: eclipse-mosquitto
-    volumes:
-      - $HOME/docker/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - $HOME/docker/mosquitto/data:/mosquitto/data
-      - $HOME/docker/mosquitto/log:/mosquitto/log
-    network_mode: bridge
-    ports:
-      - 1883:1883
-      - 9001:9001
-    restart: always
     
     
   ha-dockermon:
