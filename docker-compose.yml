@@ -74,7 +74,7 @@ services:
     tmpfs:
       - /tmp
     volumes:
-      - {$MOUNTDIR}:/mnt:z # :z allows share to be used by multiple containers
+      - /home/stijn:/mnt:z # :z allows share to be used by multiple containers
     
     
   ha-dockermon:
